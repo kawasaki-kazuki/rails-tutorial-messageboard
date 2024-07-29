@@ -1,4 +1,29 @@
-<div>
-  <h1 class="font-bold text-4xl">Messages#index</h1>
-  <p>Find me in app/views/messages/index.html.erb</p>
-</div>
+<h1>メッセージ一覧</h1>
+  <br>
+<% @messages.each do |message| %>
+
+  名前:
+<%= message.name %>
+
+  内容:
+<%= message.body %>
+
+  <br>
+<% end %>
+
+
+<%= form_for(@message) do |f| %>
+
+  名前:
+
+<%= f.text_field :name %>
+
+
+  内容:
+
+<%= f.text_field :body %>
+
+
+<%= f.submit %>
+
+<% end %>
