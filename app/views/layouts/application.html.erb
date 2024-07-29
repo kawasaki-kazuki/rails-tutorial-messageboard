@@ -2,18 +2,22 @@
 <html>
   <head>
     <title>MessageBoard</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+</head>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
-
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
-  </body>
+<body>
+  <nav class="navbar">
+    <div class="container">  
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Message Board</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
 </html>
