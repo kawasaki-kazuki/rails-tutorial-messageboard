@@ -1,32 +1,31 @@
 <%= form_with(model: @message, local: true) do |f| %>
-    <% if @message.errors.present? %>
-      <div class="alert alert-danger">
-    <%= alert %>
+  <% if @message.errors.present? %>
+    <div class="alert alert-danger">
+      <%= alert %>
       <ul>
-    <% @message.errors.full_messages.each do |full_message| %>
-      <li>
-    <%= full_message %>
-      </li>
-    <% end %>
+        <% @message.errors.full_messages.each do |full_message| %>
+          <li>
+            <%= full_message %>
+          </li>
+        <% end %>
       </ul>
-      </div>
-<% end %>
-    
-<div class="form-group row">
+    </div>
+  <% end %>
+  <div class="form-group row">
     <label for="message_name" class="col-sm-2 col-form-label">名前（必須）:</label>
     <div class="col-sm-3">
-        <%= f.text_field :name, class: "form-control" %>
+      <%= f.text_field :name, class: "form-control" %>
     </div>
-    </div>
-    <div class="form-group row">
+  </div>
+  <div class="form-group row">
     <label for="message_body" class="col-sm-2 col-form-label">内容（必須）:</label>
     <div class="col-sm-10">
-        <%= f.text_area :body, size: "70x5", class: "form-control" %>
+      <%= f.text_area :body, size: "70x5", class: "form-control" %>
     </div>
-    </div>
-    <div class="form-group row">
+  </div>
+  <div class="form-group row">
     <div class="col-sm-offset-2 col-sm-10">
-        <%= f.submit 'Post Message' , class: "btn btn-sm btn-primary" %>
+      <%= f.submit 'Post Message' , class: "btn btn-sm btn-primary" %>
     </div>
-    </div>
+  </div>
 <% end %>

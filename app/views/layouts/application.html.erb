@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MessageBoard</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-
-<body>
-  <nav class="navbar">
-    <div class="container">  
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Message Board</a>
+  <head>
+    <title>MessageBoard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Message Board</a>
+        </div>
       </div>
+    </nav>
+    <div class="container">
+      <% if notice %>
+        <div class="alert alert-info">
+          <%= notice %>
+        </div>
+      <% end %>
+      <%= yield %>
     </div>
-  </nav>
-  <div class="container">
-    <%= yield %>
-  </div>
-</body>
+  </body>
 </html>
