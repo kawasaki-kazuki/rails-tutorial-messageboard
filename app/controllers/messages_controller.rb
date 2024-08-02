@@ -15,7 +15,11 @@ class MessagesController < ApplicationController
       #メッセージが保存できなかった時
       @messages = Message.all
       flash.now[:alert] = "メッセージの保存に失敗しました"
-      render 'index'
+      # render 'index'　←_form.html.erbでTurboを無効にしているのでindexをレンダリングできないのでコメントアウトした
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('form_messages', partial: 'form', locals: { message: @message }) }
+        format.html { render :index }
+      end
     end
   end
 
